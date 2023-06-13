@@ -10,25 +10,11 @@ const createBids = async (req, res, next) => {
 
 
 
-// const getProducts = async (req, res, next) => {
-// 	const products = await Products.find();
-// 	if (req.query.catagory) {
-// 		const search = req.query.catagory.toLowerCase();
-// 		const matched = products.filter((product) =>
-// 			product.catagory.toLowerCase().includes(search)
-// 		);
-// 		res.status(200).json(matched);
-// 	} else if (req.query.name) {
-// 		const search = req.query.name;
-// 		const matched = products.filter((product) =>
-// 			product.user.name.includes(search)
-// 		);
-// 		res.status(200).json(matched);
-// 	} else {
-// 		res.status(200).json(products);
-// 	}
-// 	next();
-// };
+const getBids = async (req, res, next) => {
+	const bids = await Bids.find();
+	res.status(200).json(bids);
+	next();
+};
 
 // const updateProduct = async (req, res, next) => {
 // 	const updatedHotel = await Products.findByIdAndUpdate(
@@ -48,5 +34,6 @@ const createBids = async (req, res, next) => {
 // };
 
 module.exports = {
-	createBids
+	createBids,
+	getBids
 };
